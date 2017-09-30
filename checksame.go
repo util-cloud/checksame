@@ -115,10 +115,12 @@ func outputResults(pathData map[string]*pathsInfo) {
  }
 }
 
+const digitSeparator = ","
+
 func commas(size int64) string {
  value := fmt.Sprint(size)
- for i := len(value) - 3; i > 0; i-- {
-  value = value[:i] + "," + value[i:]
+ for i := len(value) - 3; i > 0; i -= 3 {
+  value = value[:i] + digitSeparator + value[i:]
  }
  return value
 }
